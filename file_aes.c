@@ -10,7 +10,7 @@
 #include <time.h>
 
 #define CBC 1 
-static void test_encrypt_cbc(char[]);
+static int test_encrypt_cbc(uint8_t buffer[], long buffer_size);
 
 void generate_iv (uint8_t iv_array[16]);
 
@@ -18,11 +18,9 @@ void generate_key (uint8_t keyarray[16]);
 
 
 
-static void test_encrypt_cbc(char buffer[])
+static int test_encrypt_cbc(uint8_t buffer[], long buffer_size)
 {
      
-
-
     //Initialization Vector
     uint8_t ivarray[16];
     generate_iv(ivarray);
@@ -31,62 +29,47 @@ static void test_encrypt_cbc(char buffer[])
 
                                  
     //char* report = "buffer ;
-   int dlen = strlen(buffer);
+   int dlen = buffer_size;
    
     
-    printf("THE PLAIN TEXT STRING = ");
-    for (int i=0; i<dlen;i++){
-        printf("%c", buffer[i]);
-    }
-    printf("\n");
-    
-   
+ 
     //Proper Length of buffer
     int dlenu = dlen;
     if (dlen % 16) {
         dlenu += 16 - (dlen % 16);
-        printf("The original length of the STRING = %d and the length of the padded STRING = %d\n", dlen, dlenu);
+        
     }
     
     
        
-    // Make the uint8_t arrays
-    uint8_t hexarray[dlenu];
-    
-    
-    // Initialize them with zeros
-    memset( hexarray, 0, dlenu );
-    
-    
-    // Fill the uint8_t arrays
-    for (int i=0;i<dlen;i++) {
-        hexarray[i] = (uint8_t)buffer[i];
+   
+    for (int i=dlen;i<dlenu;i++) {
+        buffer[i] = (uint8_t) 0;
     }
                                
   
-    int bufferPad = pkcs7_padding_pad_buffer( hexarray, dlen, sizeof(hexarray), 16 );
+    //int bufferPad = pkcs7_padding_pad_buffer( buffer, dlen, sizeof(buffer), 16 );
         
-    printf("The padded STRING in hex is = ");
-    for (int i=0; i<dlenu;i++){
-        printf("%02x",hexarray[i]);
-    }
-    printf("\n");
+    
     
             
     // In case you want to check if the padding is valid
-    int valid = pkcs7_padding_valid( hexarray, dlen, sizeof(hexarray), 16 );
-    //int valid2 = pkcs7_padding_valid( kexarray, klen, sizeof(kexarray), 16 );
-    printf("Is the pkcs7 padding valid report = %d", valid);
     
     //start the encryption
     struct AES_ctx ctx;
     AES_init_ctx_iv(&ctx, keyarray, ivarray);
     
     // encrypt
-    AES_CBC_encrypt_buffer(&ctx, hexarray, dlenu);
+    printf("the unencrypted STRING = ");
+    for (int i=0; i<dlenu;i++){
+        printf("%c",buffer[i]);
+    }
+    printf("\n");
+
+    AES_CBC_encrypt_buffer(&ctx, buffer, dlenu);
     printf("the encrypted STRING = ");
     for (int i=0; i<dlenu;i++){
-        printf("%02x",hexarray[i]);
+        printf("%c",buffer[i]);
     }
     printf("\n");
         
@@ -94,16 +77,11 @@ static void test_encrypt_cbc(char buffer[])
     AES_ctx_set_iv(&ctx,ivarray);
     
     // start decryption
-    AES_CBC_decrypt_buffer(&ctx, hexarray, dlenu);
+    //AES_CBC_decrypt_buffer(&ctx, hexarray, dlenu);
     
-    size_t actualDataLength = pkcs7_padding_data_length( hexarray, dlenu, 16);
-    printf("The actual data length (without the padding) = %ld\n", actualDataLength);
+    //size_t actualDataLength = pkcs7_padding_data_length( hexarray, dlenu, 16);
     
-    printf("the decrypted STRING in hex = ");
-    for (int i=0; i<actualDataLength;i++){
-        printf("%02x",hexarray[i]);
-    }
-    printf("\n");
+    return dlenu;
 }
 
 void generate_iv (uint8_t iv_array[16])
@@ -144,12 +122,7 @@ void generate_key (uint8_t keyarray[16])
 #define MAXBUFFER_SIZE 128
 
 
-// user will write a message;
-// if message crosses encryption //length we will fragment it and //zeropad
 
-// if time permits we can apply same //concept to file systems 
-
-//seperate thread can be used for file transmissions
 
 int File_Copy (char FileSource[1000], char FileDestination[1000])
 {
@@ -179,13 +152,16 @@ return 0;
 void encrypt_file (char FileName[100])
 {
 FILE* fptr ;
-char* buffer;
+uint8_t* buffer;
+//uint8_t* hexarray; 
+
 fptr =fopen(FileName, "rw");
 fseek (fptr, 0L, SEEK_END);
 long fSize = ftell(fptr);
 rewind(fptr);
 
 buffer = calloc(1, fSize+1);
+
 if( 1!=fread( buffer , fSize, 1 , fptr) )
   fclose(fptr),free(buffer),fputs("entire read fails",stderr),exit(1);
 
@@ -201,10 +177,20 @@ if( 1!=fread( buffer , fSize, 1 , fptr) )
     printf("You need to specify a symbol between AES128, AES192 or AES256. Exiting");
     return 0;
 #endif
-    for (int i=0; i <10; i++)
-    {test_encrypt_cbc(buffer);}
-
+   { int encrypt_size = test_encrypt_cbc(buffer,fSize);
     
+    //fwrite( buffer , encrypt_size, 1 , fptr);
+  //fclose(fptr),free(buffer),fputs("entire write fails",stderr),exit(1);  
+   
+   for (int i =0; i <encrypt_size; i++)
+   {
+       printf ("%c", buffer[i]); 
+   }
+   }
+
+   
+
+  
 
 
 

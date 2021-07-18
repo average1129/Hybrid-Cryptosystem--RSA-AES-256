@@ -34,8 +34,8 @@ typedef struct private_key_RSA {
 
 typedef struct AES_parameters
 {
-    uint8_t[16] AES_KEY;
-    uint8_t[16] AES_IV;
+    uint8_t  AES_KEY[16];
+    uint8_t AES_IV[16];
 
 }AES_parameters;
 
@@ -224,9 +224,22 @@ fseek (stream_R, 0L, SEEK_END);
     long fSize = ftell(stream_R);
     rewind(stream_R);
 
-uint8_t buffer [file_size+1];
+long padded_user_input_size=fSize;	
+	if (fSize % 16) 
+	{padded_user_input_size += 15 - (fSize % 16);} // turned to 15 to allow writing of terminating char into array
+
+uint8_t buffer [padded_user_input_size+1];
+memset(buffer, 0 ,padded_user_input_size );
+
     if( 1!=fread( buffer , file_size, 1 , stream_R) )
      fclose(stream_R),free(buffer),fputs("entire read fails",stderr),exit(1);
+
+// pad buffer and then input size into encrypt function
+struct AES_ctx ctx;
+	AES_init_ctx_iv(&ctx,AES_initial.AES_KEY,AES_initial.AES_IV);
+	AES_CBC_encrypt_buffer(&ctx, buffer,padded_user_input_size);
+
+return buffer; // also need to return encrypted AES key, initialization vector, rsa public key
 
 
 } 

@@ -1,0 +1,30 @@
+name: '[BUILD] GMP Libraries'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-gmp:
+    name: Building GMP libs
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macOS-latest, ubuntu-latest]
+    steps:
+    - name: Building GMP for Linux
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get install -y mercurial
+        hg clone https://gmplib.org/repo/gmp-6.2/ gmp
+        sudo apt-get install autoconf libtool
+        cd gmp/
+        ./.bootstrap
+        ./configure --host=x86_64-linux-gnu --disable-static --enable-shared
+        make -j8
+        strip .libs/libgmp.so
+    - uses: actions/upload-artifact@v1
+      name: Uploading Linux artifact
+      if: matrix.os == 'ubuntu-latest'
+      with:
+        name: linux_artifact_gmp
+        path: gmp/.libs/libgmp.so

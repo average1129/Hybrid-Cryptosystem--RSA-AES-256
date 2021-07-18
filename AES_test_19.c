@@ -64,8 +64,8 @@ void print_hex_array (uint8_t * input_ptr, int buffer_size)
         printf("%u", *i);
     }
 return;}
-
-void type_convert_buffer(char buffer[], int buffer_size, uint8_t output_buffer[])
+/*
+uint8_t* type_convert_buffer(char buffer[], int buffer_size, uint8_t * uint8_t_buffer ) // returns address of local variable, which amed this later by passing pointer variable in arguments
 {
     int padded_buffer_size = buffer_size;
     if (buffer_size%16)
@@ -74,17 +74,17 @@ void type_convert_buffer(char buffer[], int buffer_size, uint8_t output_buffer[]
 
     } 
      
+    uint8_t_buffer= (uint8_t*)calloc(padded_buffer_size,sizeof(uint8_t));
     
-    memset (output_buffer,0, padded_buffer_size);
-    for (int i =0 ; i <buffer_size; i++)
+    for (uint8_t* i = uint8_t_buffer ; i < uint8_t_buffer+ buffer_size; i++)
     {
-        output_buffer[i] = (uint8_t)buffer[i];
+        *i = (uint8_t)buffer[i - uint8_t_buffer];
     } 
+return uint8_t_buffer;
 
-return;
 
 }
-
+*/
 int main()
 {   
     srand(time(NULL));
@@ -109,29 +109,50 @@ int main()
     
     char buffer[1000];
     printf("Enter input to be encrypted:\n");
-    scanf("%s",buffer);
-
-
-    uint8_t * uint8_t_buffer ;
-    type_convert_buffer(buffer,strlen(buffer), uint8_t_buffer);
-    int string_lenght = strlen(buffer); // this is just for testing to see uint8_t version of input 
+    (void)scanf("%s",buffer);
+    int buffer_size = strlen(buffer) ;
+    int padded_buffer_size=0;
+    padded_buffer_size += 16 - buffer_size%16;
     
-    printf("\nthis is the input buffer in hex: ");
-    void print_hex_array(u_int8_t_buffer,string_lenght);
+    
+    /*
+    uint8_t * uint8_t_buffer = NULL;
+    type_convert_buffer(buffer, buffer_size, uint8_t_buffer);
+    */
+    uint8_t uint8_t_buffer[padded_buffer_size];
+    memset( uint8_t_buffer, 0, padded_buffer_size );
 
-    int padded_buffer_size;
-    padded_buffer_size += 16 - strlen(buffer)%16;
-    AES_CBC_encrypt(&(encrypt_object), uint8_t_buffer, padded_buffer_size);
+    for (int i=0;i<buffer_size;i++) {
+        uint8_t_buffer[i] = (uint8_t)buffer[i];
+    }
+
+    
+    
+    int reportPad = pkcs7_padding_pad_buffer( uint8_t_buffer, buffer_size, sizeof(uint8_t_buffer), 16 );
+
+     printf("The padded input STRING in hex is = ");
+    for (int i=0; i<padded_buffer_size;i++){
+        printf("%u",uint8_t_buffer[i]);
+    }
+    printf("\n");
+
+    AES_CBC_encrypt_buffer(&(encrypt_object), uint8_t_buffer, padded_buffer_size);
     
 
     printf("\nThis is the encrypted buffer\n");
-    void print_hex_array(u_int8_t_buffer, padded_buffer_size);
+    print_hex_array(uint8_t_buffer, padded_buffer_size);
 
 
-    AES_CBC_decrypt(&(encrypt_object), uint8_t_buffer,padded_buffer_size);
+    AES_CBC_decrypt_buffer(&(encrypt_object), uint8_t_buffer,padded_buffer_size);
 
+    size_t actualDataLength = pkcs7_padding_data_length( uint8_t_buffer, padded_buffer_size, 16);
     printf("\nThis is the decrypted buffer\n");
-    void print_hex_array (uint8_t *u_int8_t_buffer, int padded_buffer_size);
+
+    printf("the decrypted STRING in hex = ");
+    for (int i=0; i<actualDataLength;i++){
+        printf("%02x",uint8_t_buffer[i]);
+    }
+    printf("\n");
 
 
     return 0; 

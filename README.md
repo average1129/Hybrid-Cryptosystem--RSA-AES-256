@@ -1,2 +1,2 @@
 # STEPin-Mini-Project-
-STEPin.JPG
+(STEPin.JPG)

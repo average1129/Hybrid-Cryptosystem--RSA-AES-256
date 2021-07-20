@@ -32,16 +32,22 @@ Folder Structure
 
 Project Features
 
-| Feature ID       | Features |
-|----------------|-------------|
-|`1_` ||
-|`2_`||
-|`3_`||
-|`4_`||
-
+| Feature ID       | Features | Feature Status|
+|----------------|-------------|--------------|
+|`1_` |Select File to send | Implemented|
+|`2_`|Encryption and transmission of File using AES |Implemented |
+|`3_`|Encryption and transmission of AES Key using RSA | Implemented|
+|`4_`|Transmission of RSA Key|Implemented |
+|`5_`| Reception of RSA Key  ||
+|`6`|Decryption of AES Key |Implemented in exclusion|
+|`7`|Decryption of File contents |Implemented|
+|`8`|File Write in Reciever System||
+|`9`|Multi Client Connection to Central Server||
+|`10`|Displaying Available Clients to Sender to choose||
+|`11`|Dual Threaded Large Prime Generation |Implemented|
 Identified Bugs 
 
-| Bug ID       | Description | Debugging Plan of Attack 
+| Bug ID       | Description | Debugging Plan  
 |----------------|-------------|----------------------|
 |`1_` || |
 |`2_`||  |

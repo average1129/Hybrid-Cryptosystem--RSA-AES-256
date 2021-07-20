@@ -1,6 +1,13 @@
 # STEPin-Mini-Project
 ![STEPin](https://user-images.githubusercontent.com/71325016/126390610-84b74fb3-c6d7-48cb-9597-5e16bc9d7ddc.JPG)
-This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use, Asymmetric and Symmetric. Asymmetric Algorithms use a "trap door" function which is easily calculated one way, but computationally impossible without a key piece of information. This results in the generation of two keys : 1 Public and 1 Private Key.  This allows a sender to freely distribute a public key, but without the private key the data remains secure. Symmetric algorithms use a single key. They allow for faster encryption especially for larger data sizes, an example of such an encryption algorithm is AES 128. However, symmetric keys have a drawback,  since the sensitive key needs to be exchanged between sender and reciever, a man in the middle attack can be carried out. This issue can be solved by using a hybrid Cryptosystem, which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the  RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
+
+This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use: Asymmetric and Symmetric:
+
+Asymmetric Algorithms use a "trap door" function which is easily calculated one way, but computationally impossible without a key piece of information. This results in the generation of two keys : 1 Public and 1 Private Key.  This allows a sender to freely distribute a public key, but without the private key the data remains secure. 
+
+Symmetric algorithms use a single key. They allow for faster encryption especially for larger data sizes, an example of such an encryption algorithm is AES 128. However, symmetric keys have a drawback,  since the sensitive key needs to be exchanged between sender and reciever, a man in the middle attack can be carried out. 
+
+This issue can be solved by using a hybrid Cryptosystem, which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the  RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
 
 ## Project Requirements 
 
@@ -44,9 +51,10 @@ Project Features
 |`8`|File Write in Reciever System||
 |`9`|Multi Client Connection to Central Server||
 |`10`|Displaying Available Clients to Sender to choose||
-|`11`|Dual Threaded Large Prime Generation |Implemented|
-Identified Bugs 
+|`11`|Dual Threaded Large Prime Generation |Implemented in Exclusion|
 
+
+Identified Bugs 
 | Bug ID       | Description | Debugging Plan  
 |----------------|-------------|----------------------|
 |`1_` || |

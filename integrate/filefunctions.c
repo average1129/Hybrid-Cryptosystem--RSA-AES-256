@@ -14,6 +14,33 @@
 #define  MAXBUFLEN 8192
 
 
+// write function to initilaize Crypt for reception
+
+initialize_Crypt_rcv (Crypt * Crypt_ptr, RSA_parameters* recieved_RSA_parameters, AES_parameters* recieved_AES_parameters, )
+{
+	//dependent on input socket values;
+	Crypt_ptr->write_buffer = NULL;
+	Crypt_ptr->padded_buffer_Size =0;
+	RSA_parameters new_RSA_setup;
+    //initialize_RSA(&new_RSA_setup);
+	Crypt_ptr->Crypt_RSA_parameters.p = new_RSA_setup;
+	//copy in values from recieved structures 
+
+
+	AES_parameters new_AES_setup;
+    //initialize_AES_parameters(&new_AES_setup);
+	//copy in values from recieved structures
+
+	Crypt_ptr->Crypt_AES_parameters = new_AES_setup;
+
+	message new_message;
+	initialize_message(&new_message);
+	Crypt_ptr->Crypt_message = new_message;
+
+	
+}
+
+
 //initialise Crypt before passing to read_file
 void READ_FILE ( char FileName[], Crypt *Crypt_ptr) // this function will open 
 {
@@ -78,6 +105,30 @@ void encrypt_Crypt (Crypt* Crypt_ptr)
 return; 
 }
 
+void decrypt_AES_key_HL_ (Crypt* Reciever_Crypt_ptr)
+{	message  output_message;
+	decrypt_AES_key(&(Reciever_Crypt_ptr->Crypt_RSA_parameters), &(Reciever_Crypt_ptr->Crypt_message), &output_message);
+	char* AES_key_string= mpz_get_str(NULL,10,&(output_message.M));
+	// decrypted message will now be available in output message as MPZ
+	//convert mpz to string 
+	
+
+	for (int i=0; i<16; i++)
+	{
+		(Reciever_Crypt_ptr->Crypt_AES_parameters.AES_KEY[i])=(uint8_t)AES_key_string;
+	}
+	
+
+}
+
+void decrypt_FILE_data (Crypt* Reciever_Crypt_ptr, message *output_message, AES_ctx* file_decryptor_object)
+{	// these values will have to be stuffed into object while tranmsitting 
+	//only then we can call decryption function
+	decrypt_AES_key_HL(Reciever_Crypt_ptr);
+	AES_init_ctx_iv(file_decryptor_object, Reciever_Crypt_ptr->Crypt_AES_parameters.AES_KEY,Reciever_Crypt_ptr->Crypt_AES_parameters.AES_IV);
+	AES_CBC_decrypt_buffer(file_decryptor_object,Reciever_Crypt_ptr->write_buffer,Reciever_Crypt_ptr->padded_buffer_Size);
+return;
+}
 
 
 

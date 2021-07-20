@@ -24,6 +24,8 @@ message Crypt_message;
 }Crypt;
 
 
+
+
 void READ_FILE (char FileName[], Crypt* Crypt_ptr);
 long FILE_SIZE (FILE * fptr);
 void initialize_Crypt(Crypt *Crypt_ptr);

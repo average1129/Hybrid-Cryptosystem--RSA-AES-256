@@ -56,20 +56,23 @@ Anyone who wants to transmit a file from their system to another system.
 ## Requirements: 
 
 ### High Level Requirements 
-HR_1 |Secure Asymmetric Encryption Algorithm 
-HR_2 |Secure Symmetric Encryption Algorithm 
-HR_3 |Asymmetric Encryption algorithm should be able to effectively encrypt data that is atleast the size of Symmetric Algorithm's Key Length
-HR_4 |Effective Key Distribution Method for RSA
-HR_5 |Padding system for padding input data 
-HR_6 |Keys used should be random
-HR_7 |All pertinent data should be transmitted reliably
-HR_8 |Ability to flexibly select files to send 
-HR_9 |File Size Flexibility
-HR_10 |Data transfer is from single user-to-single user only
+|Requirement ID| Description|
+|----|---------------------------------------------------------------------------------|
+|HR_1 |Secure Asymmetric Encryption Algorithm| 
+|HR_2 |Secure Symmetric Encryption Algorithm |
+|HR_3 |Asymmetric Encryption algorithm should be able to effectively encrypt data that is atleast the size of Symmetric Algorithm's Key Length|
+|HR_4 |Effective Key Distribution Method for RSA |
+|HR_5 |Padding system for padding input data |
+|HR_6 |Keys used should be random|
+|HR_7 |All pertinent data should be transmitted reliably|
+|HR_8 |Ability to flexibly select files to send |
+|HR_9 |File Size Flexibility|
+|HR_10 |Data transfer is from single user-to-single user only|
 
 
 ### Low Level Requirements 
-|----|-----------------------------------------------------------------------------------------------|
+|Requirement ID| Description|
+|----|---------------------------------------------------------------------------------|
 |LR_1| Use of RSA for Asymmetric Encryption|
 |LR_2|Using RSA - 2048 ((2048 bit key)) for security , since lower key sizes have known vulnerabilities.|
 |LR_3| Using AES for Symmetric Encryption|

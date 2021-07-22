@@ -8,7 +8,10 @@ Asymmetric Algorithms use a "trap door" function which is easily calculated one 
 Symmetric algorithms use a single key. They allow for faster encryption especially for larger data sizes, an example of such an encryption algorithm is AES 128. However, symmetric keys have a drawback, since the sensitive key needs to be exchanged between sender and reciever, a man in the middle attack can be carried out.
 
 Both classes have their own sets of disadvantages and advantages. We can nullify each systems disadvantages by using a system which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the RSA public key is then distributed.
+
+
 The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
+![hybrid_asym](https://user-images.githubusercontent.com/71325016/126684733-d364fd36-8a8d-493c-8cfd-ce00d5e07183.png)
 
 ### RSA Encryption Algorithm 
 In a public-key cryptosystem, the encryption key is public and distinct from the decryption key, which is kept secret (private). An RSA user creates and publishes a public key based on two large prime numbers, along with another value. The prime numbers are kept secret. Messages can be encrypted by anyone, via the public key, but can only be decoded by someone who knows the prime numbers. RSA is often used in hybrid Cryptosystems to facilitate the transfer of sensitive data which has a small length, specifically keys from other types of encryption. 

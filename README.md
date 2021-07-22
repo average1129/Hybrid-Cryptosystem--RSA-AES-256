@@ -3,11 +3,7 @@
 
 This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use: Asymmetric and Symmetric:
 
-Asymmetric Algorithms use a "trap door" function which is easily calculated one way, but computationally impossible without a key piece of information. This results in the generation of two keys : 1 Public and 1 Private Key.  This allows a sender to freely distribute a public key, but without the private key the data remains secure. 
-
-Symmetric algorithms use a single key. They allow for faster encryption especially for larger data sizes, an example of such an encryption algorithm is AES 128. However, symmetric keys have a drawback,  since the sensitive key needs to be exchanged between sender and reciever, a man in the middle attack can be carried out. 
-
-This issue can be solved by using a hybrid Cryptosystem, which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the  RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
+Both systems have their own drawbacks, we can mitigate this issue  by using a hybrid Cryptosystem, which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the  RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
 
 ## Project Requirements 
 

@@ -50,10 +50,4 @@ Project Features
 |`11`|Dual Threaded Large Prime Generation |Implemented in Exclusion|
 
 
-Identified Bugs 
-| Bug ID       | Description | Debugging Plan  
-|----------------|-------------|----------------------|
-|`1_` || |
-|`2_`||  |
-|`3_`||  |
-|`4_`||  |
+

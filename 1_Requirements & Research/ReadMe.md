@@ -13,10 +13,11 @@ The intended reciever will be able to decrypt the AES key and succesfully decryp
 ### RSA Encryption Algorithm 
 In a public-key cryptosystem, the encryption key is public and distinct from the decryption key, which is kept secret (private). An RSA user creates and publishes a public key based on two large prime numbers, along with another value. The prime numbers are kept secret. Messages can be encrypted by anyone, via the public key, but can only be decoded by someone who knows the prime numbers. RSA is often used in hybrid Cryptosystems to facilitate the transfer of sensitive data which has a small length, specifically keys from other types of encryption. 
 
-
+![Picture1](https://user-images.githubusercontent.com/71325016/126684129-ac5c8be6-c95f-47cf-9517-1722ee2e8a6f.png)
 ### AES Encryption Algorithm 
 AES is a subset of the Rijndael block cipher, It sees widespread use for a variety of needs. It is based on the concept of substitution permutation networks. There are a number of key lengths and methodologies of AES used, and is a popular choise for symmetric encryption.  
 
+![symetric](https://user-images.githubusercontent.com/71325016/126683967-8b5423e0-76e5-4882-bd33-975471bf6d26.png)
 
 ## Defining the System
 [INSERT SYSTEM DIAGRAM]

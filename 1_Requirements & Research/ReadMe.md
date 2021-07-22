@@ -9,8 +9,10 @@ Symmetric algorithms use a single key. They allow for faster encryption especial
 
 Both classes have their own sets of disadvantages and advantages. We can nullify each systems disadvantages by using a system which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the RSA public key is then distributed.
 
-
 The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 
+
+
+
 ![hybrid_asym](https://user-images.githubusercontent.com/71325016/126684733-d364fd36-8a8d-493c-8cfd-ce00d5e07183.png)
 
 ### RSA Encryption Algorithm 

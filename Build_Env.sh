@@ -6,7 +6,7 @@ sudo apt-get install -y mercurial
 sudo apt-get install m4
 
 #building gmp ibrary 
-hg clone https://gmplib.org/repo/gmp-6.2.1/ gmp
+hg clone https://gmplib.org/repo/gmp-6.2/ gmp
 sudo apt-get install autoconf libtool
 cd gmp/
 ./.bootstrap

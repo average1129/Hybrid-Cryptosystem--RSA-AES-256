@@ -17,7 +17,8 @@ In a public-key cryptosystem, the encryption key is public and distinct from the
 ### AES Encryption Algorithm 
 AES is a subset of the Rijndael block cipher, It sees widespread use for a variety of needs. It is based on the concept of substitution permutation networks. There are a number of key lengths and methodologies of AES used, and is a popular choise for symmetric encryption.  
 
-![symetric](https://user-images.githubusercontent.com/71325016/126683967-8b5423e0-76e5-4882-bd33-975471bf6d26.png)
+![Picture2](https://user-images.githubusercontent.com/71325016/126684408-b799462a-d0d5-448a-af8a-e28de498bda9.jpg)
+
 
 ## Defining the System
 [INSERT SYSTEM DIAGRAM]

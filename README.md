@@ -3,7 +3,8 @@
 
 |Badge|Status|
 |-----|------|
-||![Build_Project]https://github.com/average1129/STEPin-Mini-Project-/blob/main/.github/workflows/Build_Project.yml|
+
+[Build_Project](https://github.com/average1129/STEPin-Mini-Project-/blob/main/.github/workflows/Build_Project.yml)
 
 This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use: Asymmetric and Symmetric:
 

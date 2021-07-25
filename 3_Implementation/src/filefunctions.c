@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include<errno.h> 
+#include <errno.h> 
 #include <string.h>
 #include <stdint.h>
+#include <gmp.h>
 #include "aes.h"
 #include "RSA.h"
 #include "AES_functions.h"
@@ -15,7 +16,7 @@
 
 
 // write function to initilaize Crypt for reception
-
+/*
 initialize_Crypt_rcv (Crypt * Crypt_ptr, RSA_parameters* recieved_RSA_parameters, AES_parameters* recieved_AES_parameters, )
 {
 	//dependent on input socket values;
@@ -38,7 +39,7 @@ initialize_Crypt_rcv (Crypt * Crypt_ptr, RSA_parameters* recieved_RSA_parameters
 	Crypt_ptr->Crypt_message = new_message;
 
 	
-}
+}*/
 
 
 //initialise Crypt before passing to read_file
@@ -58,7 +59,7 @@ Crypt_ptr->write_buffer= calloc (local_padded_buffer_size, sizeof(u_int8_t)); //
 if( 1!=fread(Crypt_ptr->write_buffer , fSize, 1 , fptr) )
   {fclose(fptr),free(Crypt_ptr->write_buffer),fputs("entire read fails",stderr),exit(1);}
     
-int reportPad = pkcs7_padding_pad_buffer(Crypt_ptr->write_buffer, fSize, sizeof(Crypt_ptr->write_buffer), 16 );
+//int reportPad = pkcs7_padding_pad_buffer(Crypt_ptr->write_buffer, fSize, sizeof(Crypt_ptr->write_buffer), 16 );
 Crypt_ptr->padded_buffer_Size = local_padded_buffer_size; 
 fclose(fptr);
 
@@ -105,7 +106,7 @@ void encrypt_Crypt (Crypt* Crypt_ptr)
 return; 
 }
 
-void decrypt_AES_key_HL_ (Crypt* Reciever_Crypt_ptr)
+/*void decrypt_AES_key_HL_ (Crypt* Reciever_Crypt_ptr)
 {	message  output_message;
 	decrypt_AES_key(&(Reciever_Crypt_ptr->Crypt_RSA_parameters), &(Reciever_Crypt_ptr->Crypt_message), &output_message);
 	char* AES_key_string= mpz_get_str(NULL,10,&(output_message.M));
@@ -119,7 +120,8 @@ void decrypt_AES_key_HL_ (Crypt* Reciever_Crypt_ptr)
 	}
 	
 
-}
+}*/
+/*
 
 void decrypt_FILE_data (Crypt* Reciever_Crypt_ptr, message *output_message, AES_ctx* file_decryptor_object)
 {	// these values will have to be stuffed into object while tranmsitting 
@@ -129,6 +131,6 @@ void decrypt_FILE_data (Crypt* Reciever_Crypt_ptr, message *output_message, AES_
 	AES_CBC_decrypt_buffer(file_decryptor_object,Reciever_Crypt_ptr->write_buffer,Reciever_Crypt_ptr->padded_buffer_Size);
 return;
 }
-
+*/
 
 

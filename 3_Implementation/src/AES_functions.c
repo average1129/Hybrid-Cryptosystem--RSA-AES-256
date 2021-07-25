@@ -2,11 +2,11 @@
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
-//#include "gmp.h" // include header 
+#include <gmp.h> // include header 
 #include <stddef.h>
-#include "../include/pkcs7_padding.h"
-#include "../include/aes.h"
-#include "../includeAES_functions.h"
+//#include "../include/pkcs7_padding.h"
+#include "aes.h"
+#include "AES_functions.h"
 #include <stdint.h>
 
 #define CBC 1

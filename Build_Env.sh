@@ -11,7 +11,7 @@ hg clone https://gmplib.org/repo/gmp-6.2/ gmp
 sudo apt-get install autoconf libtool
 cd gmp/
 ./.bootstrap
-./.configure --host=x86_64-linux-gnu --disable-static --enable-shared
+./configure --host=x86_64-linux-gnu --disable-static --enable-shared
 sudo make -j8
 sudo make check
 sudo make install

@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: sudo ./Build_Env.sh
+      run: ./Build_Env.sh
     - name: make
       run: cd 3_Implementation && make compile1 && make compile2 && make compile3
     

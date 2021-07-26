@@ -1,4 +1,4 @@
-name: Build_Project
+name: Static Code Analysis
 
 on:
   push:

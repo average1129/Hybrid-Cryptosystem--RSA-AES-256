@@ -20,4 +20,4 @@ jobs:
     - name: cd  
       run: cd 3_Implementation/src
     - name: run cppcheck
-      run: cppcheck AES_functions.c && cppcheck RSA.c && cppcheck filefunctions.c 
+      run: sudo cppcheck AES_functions.c && cppcheck RSA.c && cppcheck filefunctions.c 

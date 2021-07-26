@@ -5,7 +5,7 @@
 |------|--------|
 |Build Project|[![Build_Project](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Build_Project.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Build_Project.yml)|
 |Dynamic Code Quality Check|[![Memory Leak Test](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml)|
-|Static Code Quality Check||
+|Static Code Quality Check|[![Static Code Analysis](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/CppCheck.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/CppCheck.yml)|
 
 
 

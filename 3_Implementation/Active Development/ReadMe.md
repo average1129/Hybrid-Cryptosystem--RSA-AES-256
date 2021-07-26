@@ -1,0 +1,1 @@
+Files in this space may not compile as they are currently under active devlopment. You can see progress of project and features that I have not been able to implement entirely being developed and tested here. 

@@ -57,5 +57,5 @@ Simply download the ZIP folder from github and  run test makefile to ensure corr
 
 ### Acknowledgement
 
-I would like to acknowledge Aadreesh's and Arihant's support in the project especially helping me understand how to implement the CI/CD features.   
+I would like to acknowledge Aadreesh's and Arihant's support in the project especially helping me understand how to implement the CI/CD features. I would also like to thank Bharat and Rajesh for their constant support and guidance on the project.   
 

@@ -22,10 +22,9 @@ test2 :	compile1
 test3 :	compile1	
 	./file_AES
 
-mem_leak:	compile1 compile2 compile3
-	valgrind ./file_functions 
+mem_leak:	compile1 compile2 compile3 
 	valgrind ./file_RSA
-	valgrind ./file_AES
+	
 
 clean :	
 	rm *.o src/*.o file_AES file_function_test file_functions

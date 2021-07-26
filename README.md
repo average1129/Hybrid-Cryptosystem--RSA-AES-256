@@ -45,15 +45,17 @@ Simply download the ZIP folder from github and  run test makefile to ensure corr
 
 | Feature ID       | Features | Feature Status|
 |----------------|-------------|--------------|
-|`1_` |Select File to send | Implemented|
-|`2_`|Encryption and transmission of File using AES |Implemented |
-|`3_`|Encryption and transmission of AES Key using RSA | Implemented|
-|`4_`|Transmission of RSA Key|Unable to Implement |
-|`5_`| Reception of RSA Key  |Unable to Implement|
+|`1` |Select File to send | Implemented|
+|`2`|Encryption and transmission of File using AES |Implemented |
+|`3`|Encryption and transmission of AES Key using RSA | Implemented|
+|`4`|Transmission of RSA Key|Unable to Implement |
+|`5`| Reception of RSA Key  |Unable to Implement|
 |`6`|Decryption of AES Key |Implemented in exclusion|
 |`7`|Decryption of File contents |Implemented in exclusion|
 |`8`|File Write in Reciever System|In progress|
 |`9`|Dual Threaded Large Prime Generation |Implemented in Exclusion|
 
+### Acknowledgement
 
+I would like to acknowledge Aadreesh's and Arihant's support in the project especially helping me understand how to implement the CI/CD features.   
 

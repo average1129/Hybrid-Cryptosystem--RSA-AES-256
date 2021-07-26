@@ -32,7 +32,7 @@ https://github.com/kokke/tiny-AES-c
 Simply download the ZIP folder from github and  run test makefile to ensure correct installation and working of program. Just add aes.c and aes.h to your project space. 
 
 
-Folder Structure 
+### Folder Structure 
 | Folder         | Description |
 |----------------|-------------|
 |`1_Requirements & Research`  |Documents detailing requirements and research|
@@ -41,7 +41,7 @@ Folder Structure
 |`4_Documentation`| Documentation of Project|
 
 
-Project Features
+### Project Features
 
 | Feature ID       | Features | Feature Status|
 |----------------|-------------|--------------|

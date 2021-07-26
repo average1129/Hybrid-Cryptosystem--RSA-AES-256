@@ -1,9 +1,6 @@
 # STEPin-Mini-Project
 ![STEPin](https://user-images.githubusercontent.com/71325016/126390610-84b74fb3-c6d7-48cb-9597-5e16bc9d7ddc.JPG)
 
-|Badge|Status|
-|-----|------|
-
 ![Build_Project](https://github.com/average1129/STEPin-Mini-Project-/blob/main/.github/workflows/Build_Project.yml)
 
 This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use: Asymmetric and Symmetric:

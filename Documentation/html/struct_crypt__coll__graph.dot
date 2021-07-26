@@ -1,0 +1,17 @@
+digraph "Crypt"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Crypt",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Structure holds padded buffer size, the buffer where actual encryption takes place ,..."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Crypt_RSA_parameters" ,fontname="Helvetica"];
+  Node2 [label="RSA_parameters",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_r_s_a__parameters.html",tooltip="Structure holds both the private and public key of an encrypted message"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pub_k" ,fontname="Helvetica"];
+  Node3 [label="public_key_RSA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structpublic__key___r_s_a.html",tooltip="Structure holds Modulus and globally fixed Public Exponent both are mpz_t"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pri_k" ,fontname="Helvetica"];
+  Node4 [label="private_key_RSA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structprivate__key___r_s_a.html",tooltip="Structure holds 5 different mpz_t variables which form the private key for RSA encryption."];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Crypt_AES_parameters" ,fontname="Helvetica"];
+  Node5 [label="AES_parameters",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_a_e_s__parameters.html",tooltip="Structure holds 16 bit AES Key and 16 bit IV."];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Crypt_message" ,fontname="Helvetica"];
+  Node6 [label="message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmessage.html",tooltip="Structure holds space to encrypt and decrypt data in the form of mpz_t"];
+}

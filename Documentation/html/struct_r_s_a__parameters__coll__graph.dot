@@ -1,0 +1,11 @@
+digraph "RSA_parameters"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="RSA_parameters",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Structure holds both the private and public key of an encrypted message"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pub_k" ,fontname="Helvetica"];
+  Node2 [label="public_key_RSA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structpublic__key___r_s_a.html",tooltip="Structure holds Modulus and globally fixed Public Exponent both are mpz_t"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pri_k" ,fontname="Helvetica"];
+  Node3 [label="private_key_RSA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structprivate__key___r_s_a.html",tooltip="Structure holds 5 different mpz_t variables which form the private key for RSA encryption."];
+}

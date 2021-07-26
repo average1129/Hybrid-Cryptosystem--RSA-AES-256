@@ -17,11 +17,28 @@ uint8_t encrypted_AES_KEY [16];
 public_key_RSA public_key;
 }Crypt;*/
 
+/**
+ * @file AES_functions.c
+ * @author adityasaggar2911@gmail.com
+ * @brief This file defines the logic to hold important parameters for AES generation. and to randomly generate key and IV
+ * @version 0.1
+ * @date 2021-07-25
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ * 
+ * */
 
 
 
 
-
+/** 
+ * @brief generates randomized key
+ * @param[in] Uninitialized Key array from AES_PARAMETERS
+ * @param[out] Initialized Key array
+ * @return void 
+ * */
+ 
 
 void generate_key(uint8_t key_array[16])
 {
@@ -35,6 +52,15 @@ memset( key_array, 0, 16 );
 
 return;}
 
+
+
+/** 
+ * @brief generates randomized IV
+ * @param[in] Uninitialized IV array from AES_PARAMETERS
+ * @param[out] Initialized IV array
+ * @return void 
+ * */
+
 void generate_iv (uint8_t iv_array[16])
 {
 memset( iv_array, 0, 16 );
@@ -46,7 +72,12 @@ memset( iv_array, 0, 16 );
 	}
 return;}
 
-
+/** 
+ * @brief Initializes AES_parameters structure
+ * @param[in] AES_p pointer to AES_parameters structure
+ * @param[out] Initialized AES_parameters structure
+ * @return void 
+ * */
 void initialize_AES_parameters(AES_parameters* new_parameters)
 {
     
@@ -55,7 +86,13 @@ void initialize_AES_parameters(AES_parameters* new_parameters)
 
 return;
 }
-
+/** 
+ * @brief Prints out hex array
+ * @param[in] pointer to integer array 
+ * @param[in] size of array
+ * @param[out] array values are printed
+ * @return void 
+ * */
 void print_hex_array (uint8_t * input_ptr, int buffer_size)
 {
  for (uint8_t* i = input_ptr; i<input_ptr+buffer_size; i++)

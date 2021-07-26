@@ -15,6 +15,18 @@
 #define  MAXBUFLEN 8192
 
 
+/**
+ * @file filefunctions.c
+ * @author adityasaggar2911@gmail.com
+ * @brief This file defines functions for hybrid cryptosystem and some filefunctions to handle Files directly for encryption and decryption
+ * @version 0.1
+ * @date 2021-07-25
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ * 
+ * */
+
 // write function to initilaize Crypt for reception
 /*
 initialize_Crypt_rcv (Crypt * Crypt_ptr, RSA_parameters* recieved_RSA_parameters, AES_parameters* recieved_AES_parameters, )
@@ -41,6 +53,13 @@ initialize_Crypt_rcv (Crypt * Crypt_ptr, RSA_parameters* recieved_RSA_parameters
 	
 }*/
 
+/**
+ * @brief This function opens a file from string with filename, and encodes it by using all parameters in initialized crypt
+ *@param[in] character array that holds Filename to open 
+ *@param[in] Crypt pointer to Crypt that has been initialised with all parameters 
+ * @param[out] Initialized Key array
+ * @return void 
+ * */
 
 //initialise Crypt before passing to read_file
 void READ_FILE ( char FileName[], Crypt *Crypt_ptr) // this function will open 
@@ -67,6 +86,13 @@ fclose(fptr);
 }
 
 
+/**
+ * @brief This function opens a file from file pointer and returns the size of the file
+ *@param[in] FILE pointer to File
+ * @param[out] long file size
+ * @return void 
+ * */
+
 long FILE_SIZE (FILE * fptr)
 {
 fseek (fptr, 0L, SEEK_END);
@@ -75,6 +101,12 @@ rewind(fptr);
 return fSize;
 }
 
+/**
+ * @brief This function initializes an input crypt
+ *@param[in] Crypt pointer to Crypt that has not yet been initialised with all parameters 
+ * @param[out] Initialized Crypt pointer
+ * @return void 
+ * */
 
 void initialize_Crypt (Crypt* Crypt_ptr)
 {
@@ -96,6 +128,14 @@ void initialize_Crypt (Crypt* Crypt_ptr)
 	
 }
 
+/**
+ * @brief This function opens a file from string with filename, and encodes it by using all parameters in initialized crypt
+  *@param[in] Crypt pointer to Crypt that has been initialised with all parameters 
+ * @param[out] Encrypted Data from file has been written into write buffer
+ * @param[out] File Size has been written into padded_buffer_size
+ * @param[out] AES Keys are encrypted in AES KEY
+ * @return void 
+ * */
 void encrypt_Crypt (Crypt* Crypt_ptr)
 {
 	struct AES_ctx encrypt_object;

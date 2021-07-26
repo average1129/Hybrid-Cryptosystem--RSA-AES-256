@@ -37,8 +37,8 @@ Folder Structure
 |----------------|-------------|
 |`1_Requirements & Research`  |Documents detailing requirements and research|
 |`2_Design`        |Documents specifying design details|
-|`3_Implementation`|All code and documentation|
-|`4_Test _Plan`| Test plan and procedure|
+|`3_Implementation`|Source Code|
+|`4_Documentation`| Documentation of Project|
 
 
 Project Features
@@ -48,14 +48,12 @@ Project Features
 |`1_` |Select File to send | Implemented|
 |`2_`|Encryption and transmission of File using AES |Implemented |
 |`3_`|Encryption and transmission of AES Key using RSA | Implemented|
-|`4_`|Transmission of RSA Key|Implemented |
-|`5_`| Reception of RSA Key  ||
+|`4_`|Transmission of RSA Key|Unable to Implement |
+|`5_`| Reception of RSA Key  |Unable to Implement|
 |`6`|Decryption of AES Key |Implemented in exclusion|
-|`7`|Decryption of File contents |Implemented|
-|`8`|File Write in Reciever System||
-|`9`|Multi Client Connection to Central Server||
-|`10`|Displaying Available Clients to Sender to choose||
-|`11`|Dual Threaded Large Prime Generation |Implemented in Exclusion|
+|`7`|Decryption of File contents |Implemented in exclusion|
+|`8`|File Write in Reciever System|In progress|
+|`9`|Dual Threaded Large Prime Generation |Implemented in Exclusion|
 
 
 

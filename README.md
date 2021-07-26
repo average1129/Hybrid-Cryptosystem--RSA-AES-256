@@ -4,8 +4,11 @@
 |Action| Status|
 |------|--------|
 |Build Project|[![Build_Project](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Build_Project.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Build_Project.yml)|
-|Dynamic COde Quality Check|[![Memory Leak Test](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml)|
+|Dynamic Code Quality Check|[![Memory Leak Test](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml/badge.svg)](https://github.com/average1129/STEPin-Mini-Project-/actions/workflows/Memory%20Leak%20Test.yml)|
 |Static Code Quality Check||
+
+
+
 This project attempts to create a simple Hybrid Cryptosystem for secure file transfer. There are two broad classes of Cryptopgraphic algorithms in use: Asymmetric and Symmetric:
 
 Both systems have their own drawbacks, we can mitigate this issue  by using a hybrid Cryptosystem, which uses both classes of encryption algorithms for added security. In this project we encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the  RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data . 

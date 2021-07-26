@@ -1,0 +1,21 @@
+name: Build_Project
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: chmod +x Build_Env.sh && ./Build_Env.sh
+    - name: get cppcheck
+      run: sudo apt install cppcheck
+    - name: run cppcheck  
+      run: cd 3_Implementation/src && cppcheck AES_functions.c && cppcheck RSA.c && cppcheck file functions.c 

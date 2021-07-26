@@ -15,8 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: chmod +x Build_Env.sh && ./Build_Env.sh
-    - name: get cppcheck
-      run: sudo apt install cppcheck
     - name: cd  
       run: cd 3_Implementation/src
     - name: run cppcheck

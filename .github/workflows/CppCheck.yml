@@ -17,5 +17,7 @@ jobs:
       run: chmod +x Build_Env.sh && ./Build_Env.sh
     - name: get cppcheck
       run: sudo apt install cppcheck
-    - name: run cppcheck  
-      run: cd 3_Implementation/src && cppcheck AES_functions.c && cppcheck RSA.c && cppcheck file functions.c 
+    - name: cd  
+      run: cd 3_Implementation/src
+    - name: run cppcheck
+      run: cppcheck AES_functions.c && cppcheck RSA.c && cppcheck filefunctions.c 

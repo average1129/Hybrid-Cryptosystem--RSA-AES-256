@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: chmod +x Build_Env.sh && ./Build_Env.sh
-    - name: cd  
-      run: cd 3_Implementation/src
     - name: run cppcheck
-      run: sudo cppcheck AES_functions.c && cppcheck RSA.c && cppcheck filefunctions.c 
+      run: cppcheck 3_Implementation
+ 

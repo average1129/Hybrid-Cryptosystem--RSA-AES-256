@@ -1,0 +1,20 @@
+name: Memory Leak Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: chmod +x Build_Env.sh && ./Build_Env.sh
+    - name: make
+      run: cd 3_Implementation && make compile1 && make compile2 && make compile3 && make mem_leak
+      

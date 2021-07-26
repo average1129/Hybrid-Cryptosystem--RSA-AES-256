@@ -26,7 +26,7 @@ AES is a subset of the Rijndael block cipher, It sees widespread use for a varie
 
 
 ## Defining the System
-![System Diagram](https://github.com/average1129/STEPin-Mini-Project-/blob/main/1_Requirements%20%26%20Research/system%20diagram.jpg)
+![system diagram](https://user-images.githubusercontent.com/71325016/126934028-ab8f7902-0a40-4bfc-81e8-744801bac36e.jpg)
 
 The project aims to facilitate secure file transfer over a TCP connection.  We encrypt our data using a symmetric algorithm like AES 128 and encrypt the AES 128 key using RSA algorithm, the RSA public key is then distributed. The intended reciever will be able to decrypt the AES key and succesfully decrypt the recieved data .
 

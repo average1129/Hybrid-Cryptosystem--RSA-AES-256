@@ -5,6 +5,7 @@ sudo apt-get install build-essential gcc make cmake cmake-gui cmake-curses-gui
 sudo apt-get install -y doxygen mercurial
 sudo apt-get install m4
 sudo apt-get install valgrind
+sudo apt-get install cppcheck
 
 #building gmp ibrary 
 hg clone https://gmplib.org/repo/gmp-6.2/ gmp
